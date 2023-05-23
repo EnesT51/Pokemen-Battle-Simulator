@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Pokemen_Battle_Simulator
 {
-    class Charmender
+    public class Charmender
     {
-        public string Name { get; set; }
-        public string Strength { get; set; }
-        public string Weakness { get; set; }
+        private string _Name;
+        private string _Strength;
+        private string _Weakness;
+
+        public string Name { get { return _Name; } set { _Name = value; } }
+        public string Strength { get { return _Strength; } set { _Strength = value; } }
+        public string Weakness { get { return _Weakness; } set { _Weakness = value; } }
 
         public Charmender(string name, string strength, string weakness)
         {
@@ -19,30 +24,18 @@ namespace Pokemen_Battle_Simulator
             Weakness = weakness;
         }
 
-        public string GetName()
-        {
-            return Name;
-        }
-        public void Setname(string name)
-        {
-            Name = name;
-        }
-        public void GetStrength(string strength)
+        public Charmender(string strength, string weakness)
         {
             Strength = strength;
-        }
-        public string strength()
-        {
-            return Strength;
-        }
-        public void weakness(string weakness)
-        {
             Weakness = weakness;
         }
-        public string ReturnWeakness()
+        public void BattleCry()
         {
-            return Weakness;
+            for (int i = 0; i < 6; i++)
+            {
+                Console.WriteLine($"{Name} does his Battle Cry!!!");
+            }
+            
         }
-
     }
 }
