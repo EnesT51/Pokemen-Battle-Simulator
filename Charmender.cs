@@ -9,13 +9,9 @@ namespace Pokemen_Battle_Simulator
 {
     public class Charmender
     {
-        private string _Name;
-        private string _Strength;
-        private string _Weakness;
-
-        public string Name { get { return _Name; } set { _Name = value; } }
-        public string Strength { get { return _Strength; } set { _Strength = value; } }
-        public string Weakness { get { return _Weakness; } set { _Weakness = value; } }
+        public string Name { get; set; }
+        public string Strength { get; set; }
+        public string Weakness { get; set; }
 
         public Charmender(string name, string strength, string weakness)
         {
@@ -31,11 +27,7 @@ namespace Pokemen_Battle_Simulator
         }
         public void BattleCry()
         {
-            for (int i = 0; i < 6; i++)
-            {
-                Console.WriteLine($"{Name} does his Battle Cry!!!");
-            }
-            
+            Console.WriteLine($"{Name} does his Battle Cry!!!");
         }
     }
 }

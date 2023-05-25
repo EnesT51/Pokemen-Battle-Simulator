@@ -10,9 +10,8 @@ namespace Pokemen_Battle_Simulator
     public class Trainer
     {
         private List<Pokeball> belt;
-        private string _TrainerName;
 
-        public string TrainerName { get { return _TrainerName; } set { _TrainerName = value; } }
+        public string TrainerName { get; set; }
         public Trainer(string trainername)
         {
             TrainerName = trainername;

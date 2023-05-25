@@ -9,7 +9,6 @@ class Program
         bool Answer;
         do 
         {
-            Charmender charmender = new Charmender("fire", "water");
             Console.Write("Give a name for the first trainer: ");
             string Trainername = Console.ReadLine();
             Trainer trainer = new Trainer(Trainername);
@@ -27,27 +26,27 @@ class Program
             {
                 Console.Write($"First trainer, give a name for you {count} Charmender: ");
                 string name = Console.ReadLine();
-                charmender.Name = name;
-                trainer.AddPokemenToBelt(charmender.Name);
+                trainer.AddPokemenToBelt(name);
+                Console.Write($"Second trainer, give a name for you {count} Charmender: ");
+                string name2 = Console.ReadLine();
+                trainer2.AddPokemenToBelt(name2);
             }
-            //foreach (string count in c)
-            //{
-            //    Console.Write($"Second trainer, give a name for you {count} Charmender: ");
-            //    string name2 = Console.ReadLine();
-            //    trainer2.AddPokemenToBelt(name2);
-            //}
-
-            foreach (Pokeball n in trainer.GetBelt())
-            {
-                Charmender charmender1 = trainer.ThrowPokeBall(n);
+            Console.WriteLine();
+            List<Pokeball> Trainer1Belt = trainer.GetBelt();
+            List<Pokeball> Trainer2Belt = trainer2.GetBelt();
+            for (int i = 0; i < 6; i++)
+            {   
+                Charmender charmender1 = trainer.ThrowPokeBall(Trainer1Belt[i]);
                 charmender1.BattleCry();
-                trainer.ReturnPokeBall(n);
+                trainer.ReturnPokeBall(Trainer1Belt[i]);
+                Charmender charmender2 = trainer2.ThrowPokeBall(Trainer2Belt[i]);
+                charmender2.BattleCry();
+                trainer2.ReturnPokeBall(Trainer2Belt[i]);
             }
-
             Console.WriteLine($"Do you want to give a new name: Y/Any Key for Stop");
             string RepeatTheLoop = Console.ReadLine().ToUpper();
-
             Answer = RepeatTheLoop == "Y" ? true : false;
+
         }
         while(Answer);   
     }

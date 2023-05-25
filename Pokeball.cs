@@ -27,7 +27,7 @@ namespace Pokemen_Battle_Simulator
         }
         public Charmender Close()
         {
-            Console.WriteLine($"Pokeball is closed {charmender.Name} is in pokeball");
+            Console.WriteLine($"{charmender.Name} is returnd to his pokeball");
             return charmender;
         }
     }
