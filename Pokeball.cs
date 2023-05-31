@@ -8,27 +8,26 @@ namespace Pokemen_Battle_Simulator
 {
     public class Pokeball
     {
-        private readonly Charmender charmender;
-        public Pokeball(Charmender charmender) 
+        public Pokemon pokemon { get; set; }
+
+        public Pokeball(Pokemon pokemon) => this.pokemon = pokemon;
+
+        public Pokemon Open()
         {
-            this.charmender = charmender;
-        }
-        public Charmender Open()
-        {
-            if(charmender != null)
+            if(pokemon != null)
             {
-                Console.WriteLine($"{charmender.Name} is released!!!");
+                Console.WriteLine($"{pokemon.Name} is released!!!");
             }
             else
             {
                 Console.WriteLine("The pokeball is empty");
             }
-            return charmender;
+            return pokemon;
         }
-        public Charmender Close()
+        public Pokemon Close()
         {
-            Console.WriteLine($"{charmender.Name} is returnd to his pokeball");
-            return charmender;
+            Console.WriteLine($"{pokemon.Name} is returnd to his pokeball");
+            return pokemon;
         }
     }
 }

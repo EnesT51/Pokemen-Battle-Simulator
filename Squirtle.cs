@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Pokemen_Battle_Simulator
 {
-    public abstract class Squirtle : Pokemon
+    public class Squirtle : Pokemon
     {
         public Squirtle(string name, string strength, string weakness) : base(name, strength, weakness)
         {
-            Name = name;
-            Strength = strength;
-            Weakness = weakness;
+            this.Name = name;
+            this.Strength = strength;
+            this.Weakness = weakness;
         }
 
         public override void BattleCry()
