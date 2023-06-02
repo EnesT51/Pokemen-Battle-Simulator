@@ -28,21 +28,10 @@ namespace Pokemen_Battle_Simulator
             return charmender;
         }
 
-        public void AddPokemenToBelt(string Name, string type)
+        public void AddPokemonToBelt(Pokeball pokeball)
         {
-            if(type == "fire")
-            {
-                belt.Add(new Pokeball(new Charmender(Name, type, "water")));
-            }
-            else if (type == "water")
-            {
-                belt.Add(new Pokeball(new Squirtle(Name, type, "leaf")));
-            }
-            else
-            {
-                belt.Add(new Pokeball(new Bulbasaur(Name, type, "fire")));
-            }
-            Console.WriteLine($"{Name} Added to the pokeball");
+            belt.Add(pokeball);
+            
         }
         public List<Pokeball> GetBelt()
         {

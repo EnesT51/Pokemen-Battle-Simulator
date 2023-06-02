@@ -8,7 +8,7 @@ namespace Pokemen_Battle_Simulator
 {
     public class Bulbasaur : Pokemon
     {
-        public Bulbasaur(string name, string strength, string weakness) : base(name, strength, weakness)
+        public Bulbasaur(string name, string strength = "grass", string weakness = "fire") : base(name, strength, weakness)
         {
             this.Name = name;
             this.Strength = strength;

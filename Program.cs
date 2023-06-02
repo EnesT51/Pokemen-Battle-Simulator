@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Linq;
 
 namespace Pokemen_Battle_Simulator;
 
@@ -24,17 +25,27 @@ class Program
 
             foreach (string count in c)
             {
-                Console.WriteLine("First trainer, which type pokemen do you want? ");
+                Console.WriteLine("Which type pokemen do you want? ");
                 string type = Console.ReadLine();
-                Console.Write($"First trainer, give a name for you {count} Pokemon: ");
+                Console.Write($"Give a name for you {count} Pokemon: ");
                 string name = Console.ReadLine();
-                
-                trainer.AddPokemenToBelt(name, type);
-                Console.WriteLine("Second trainer, which type pokemen do you want? ");
-                type = Console.ReadLine();
-                Console.Write($"Second trainer, give a name for you {count} Pokemon: ");
-                string name2 = Console.ReadLine();
-                trainer2.AddPokemenToBelt(name2, type);
+                if (type == "fire")
+                {
+                    trainer.AddPokemonToBelt(new Pokeball(new Charmender(name)));
+                    trainer2.AddPokemonToBelt(new Pokeball(new Charmender(name)));
+                    Console.WriteLine($"{name} Added to the pokeball");
+                }
+                else if (type == "water")
+                {
+                    trainer.AddPokemonToBelt(new Pokeball(new Bulbasaur(name)));
+                    trainer2.AddPokemonToBelt(new Pokeball(new Bulbasaur(name)));
+                    Console.WriteLine($"{name} Added to the pokeball");
+                }
+                else if (type == "grass")
+                {
+                    trainer.AddPokemonToBelt(new Pokeball(new Squirtle(name)));
+                    trainer2.AddPokemonToBelt(new Pokeball(new Squirtle(name)));
+                }
             }
             Console.WriteLine();
             List<Pokeball> Trainer1Belt = trainer.GetBelt();
@@ -45,9 +56,11 @@ class Program
                 Pokemon charmender1 = trainer.ThrowPokeBall(Trainer1Belt[i]);
                 charmender1.BattleCry();
                 trainer.ReturnPokeBall(Trainer1Belt[i]);
+                Console.WriteLine();
                 Pokemon charmender2 = trainer2.ThrowPokeBall(Trainer2Belt[i]);
                 charmender2.BattleCry();
                 trainer2.ReturnPokeBall(Trainer2Belt[i]);
+                Console.WriteLine();
             }
             Console.WriteLine($"Do you want to start over?: Y/Any Key for Stop");
             string RepeatTheLoop = Console.ReadLine().ToUpper();
