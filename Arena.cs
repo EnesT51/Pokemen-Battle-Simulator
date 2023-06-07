@@ -21,7 +21,7 @@ namespace Pokemen_Battle_Simulator
             Random random1 = new Random();
             Console.WriteLine();
 
-            for(int i = 0; i < 6; i ++)
+            for(int i = 0; i < 6; i ++) 
             {
                 
                 Rounds++;
