@@ -8,26 +8,26 @@ namespace Pokemen_Battle_Simulator
 {
     public class Pokeball
     {
-        public Pokemon pokemon { get; set; }
+        public Pokemon Pokemon { get; set; }
 
-        public Pokeball(Pokemon pokemon) => this.pokemon = pokemon;
+        public Pokeball(Pokemon pokemon) => this.Pokemon = pokemon;
 
         public Pokemon Open()
         {
-            if(pokemon != null)
+            if(Pokemon != null)
             {
-                Console.WriteLine($"{pokemon.Name} is released!!!");
+                Console.WriteLine($"{Pokemon.Name} is released!!!");
             }
             else
             {
                 Console.WriteLine("The pokeball is empty");
             }
-            return pokemon;
+            return Pokemon;
         }
         public Pokemon Close()
         {
-            Console.WriteLine($"{pokemon.Name} is returnd to his pokeball");
-            return pokemon;
+            Console.WriteLine($"{Pokemon.Name} is returnd to his pokeball");
+            return Pokemon;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Pokemen_Battle_Simulator
 {
     public class Squirtle : Pokemon
     {
-        public Squirtle(string name, string strength = "water", string weakness = "leaf") : base(name, strength, weakness)
+        public Squirtle(string name = "squirtle", string strength = "water", string weakness = "grass") : base(name, strength, weakness)
         {
             this.Name = name;
             this.Strength = strength;

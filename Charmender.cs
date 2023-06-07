@@ -9,7 +9,7 @@ namespace Pokemen_Battle_Simulator
 {
     public class Charmender : Pokemon
     {
-        public Charmender(string name, string strength = "fire", string weakness = "water") : base(name, strength, weakness)
+        public Charmender(string name = "charmander", string strength = "fire", string weakness = "water") : base(name, strength, weakness)
         {
             this.Name = name;
             this.Strength = strength;
