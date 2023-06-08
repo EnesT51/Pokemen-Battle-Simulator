@@ -11,27 +11,26 @@ class Program
         do 
         {
             Console.Write("Give a name for the first trainer: ");
-            string Trainername = Console.ReadLine();
-            Trainer trainer = new Trainer(Trainername);
-            trainer.TrainerName = Trainername;
-            Console.WriteLine($"First Trainer name is: {trainer.TrainerName}");
+            string Trainername1 = Console.ReadLine();
+            Trainer Trainer1 = new Trainer(Trainername1);
+            Trainer1.TrainerName = Trainername1;
+            Console.WriteLine($"First Trainer name is: {Trainer1.TrainerName}");
 
             Console.Write("Give a name for the second trainer: ");
             string Trainername2 = Console.ReadLine();
-            Trainer trainer2 = new Trainer(Trainername2);
-            trainer.TrainerName = Trainername2;
-            Console.WriteLine($"Second Trainer name is: {trainer2.TrainerName}");
+            Trainer Trainer2 = new Trainer(Trainername2);
+            Trainer2.TrainerName = Trainername2;
+            Console.WriteLine($"Second Trainer name is: {Trainer2.TrainerName}");
 
-            trainer.AddPokemonToBelt();
-            trainer2.AddPokemonToBelt();
+            Trainer1.AddPokemonToBelt();
+            Trainer2.AddPokemonToBelt();
             
             Arena arena = new Arena();
-            arena.battle(trainer, trainer2);
+            arena.BattleArena(Trainer1, Trainer2);
             
             Console.WriteLine($"Do you want to start over?: Y/Any Key for Stop");
             string RepeatTheLoop = Console.ReadLine().ToUpper();
             Answer = RepeatTheLoop == "Y" ? true : false;
-
         }
         while(Answer);   
     }

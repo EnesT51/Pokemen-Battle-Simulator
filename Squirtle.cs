@@ -17,7 +17,7 @@ namespace Pokemen_Battle_Simulator
 
         public override void BattleCry()
         {
-            Console.WriteLine($"{Name} does his Battle Cry!!!");
+            Console.WriteLine($"{Name} does his Battle Cry {Name}!!!!!!");
         }
     }
 }

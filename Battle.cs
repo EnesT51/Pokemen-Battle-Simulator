@@ -9,10 +9,10 @@ namespace Pokemen_Battle_Simulator
 {
     public class Battle
     {
-        public static int Trainer1;
-        public static int Trainer2;
+        public int Trainer1;
+        public int Trainer2;
 
-        public static string BattleOutCome(Pokemon Player1, Pokemon Player2, List<Pokeball> T1, List<Pokeball> T2)
+        public string BattleOutCome(Pokemon Player1, Pokemon Player2, List<Pokeball> T1, List<Pokeball> T2)
         {
             if(Player1.Strength == Player2.Weakness)
             {

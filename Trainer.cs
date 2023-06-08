@@ -20,12 +20,12 @@ namespace Pokemen_Battle_Simulator
         }
 
         // Instead of pokemon returns pokeball, move open to battle
-        public Pokemon ThrowPokeBall(Pokeball pokeball)
+        public static Pokemon ThrowPokeBall(Pokeball pokeball)
         {
             Pokemon pokemon = pokeball.Open();
             return pokemon;
         }
-        public Pokemon ReturnPokeBall(Pokeball pokeball)
+        public static Pokemon ReturnPokeBall(Pokeball pokeball)
         {
             Pokemon pokemon = pokeball.Close();
             return pokemon;

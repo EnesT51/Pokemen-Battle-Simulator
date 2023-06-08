@@ -16,7 +16,7 @@ namespace Pokemen_Battle_Simulator
         {
             if(Pokemon != null)
             {
-                Console.WriteLine($"{Pokemon.Name} is released!!!");
+                Console.WriteLine($"{Pokemon.Name} is released from his pokeball!!!");
             }
             else
             {

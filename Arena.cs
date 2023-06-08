@@ -9,15 +9,15 @@ namespace Pokemen_Battle_Simulator
 {
     public class Arena
     {
-        public static int Rounds { get; set; }
+        private static int Rounds { get; set; }
 
-        public Battle btl = new();
+        private Battle btl = new();
         
-        public void battle(Trainer Player1, Trainer Player2)
+        public void BattleArena(Trainer T1, Trainer T2)
         {
             ResetValues();
-            List<Pokeball> Trainer1Belt = Player1.GetBelt();
-            List<Pokeball> Trainer2Belt = Player2.GetBelt();
+            List<Pokeball> Trainer1Belt = T1.GetBelt();
+            List<Pokeball> Trainer2Belt = T2.GetBelt();
             Random random = new Random();
             Random random1 = new Random();
             Console.WriteLine();
@@ -30,36 +30,36 @@ namespace Pokemen_Battle_Simulator
                 int rnd1 = random.Next(0, Trainer1Belt.Count);
                 int rnd2 = random1.Next(0, Trainer2Belt.Count);
 
-                Pokemon pokemon1 = Player1.ThrowPokeBall(Trainer1Belt[rnd1]);
-                Pokemon pokemon2 = Player2.ThrowPokeBall(Trainer2Belt[rnd2]);
+                Pokemon pokemon1 = Trainer.ThrowPokeBall(Trainer1Belt[rnd1]);
+                Pokemon pokemon2 = Trainer.ThrowPokeBall(Trainer2Belt[rnd2]);
                 Console.WriteLine();
 
                 pokemon1.BattleCry();
                 pokemon2.BattleCry();
                 Console.WriteLine();
 
-                Player1.ReturnPokeBall(Trainer1Belt[rnd1]);
-                Player2.ReturnPokeBall(Trainer2Belt[rnd2]);
+                Trainer.ReturnPokeBall(Trainer1Belt[rnd1]);
+                Trainer.ReturnPokeBall(Trainer2Belt[rnd2]);
                 Console.WriteLine();
 
-                Console.WriteLine(Battle.BattleOutCome(pokemon1, pokemon2, Trainer1Belt, Trainer2Belt));
+                Console.WriteLine(btl.BattleOutCome(pokemon1, pokemon2, Trainer1Belt, Trainer2Belt));
                 //Console.WriteLine("---------------------------------------");
 
             }
             while (Trainer1Belt.Count > 0 && Trainer2Belt.Count > 0);
-            BattleResults();
+            BattleResults(T1, T2);
         }
-        private static void ResetValues()
+        private void ResetValues()
         {
-            Battle.Trainer1 = 0;
-            Battle.Trainer2 = 0;
+            btl.Trainer1 = 0;
+            btl.Trainer2 = 0;
             Rounds = 0;
         }
-        private static void BattleResults()
+        private void BattleResults(Trainer T1, Trainer T2)
         {
-            Console.WriteLine("[P1 score: {0}] [P2 score: {1}]", Battle.Trainer1, Battle.Trainer2);
-            string OutCome = Battle.Trainer1 > Battle.Trainer2 ? "Winner is Trainer 1" : "Winner is Trainer 2";
-            if(Battle.Trainer1 == Battle.Trainer2)
+            Console.WriteLine("[P1 score: {0}] [P2 score: {1}]", btl.Trainer1, btl.Trainer2);
+            string OutCome = btl.Trainer1 > btl.Trainer2 ? $"Winner is {T1.TrainerName}" : $"Winner is {T2.TrainerName}";
+            if(btl.Trainer1 == btl.Trainer2)
             {
                 Console.WriteLine("\nThe game is finished, there is no winner. It is a Draw");
             }
