@@ -44,10 +44,5 @@ namespace Pokemen_Battle_Simulator
         {
             return belt;
         }
-
-        public void RemovePokemon(Pokemon pokemon, Trainer T)
-        {
-
-        }
     }
 }
