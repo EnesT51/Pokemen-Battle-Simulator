@@ -8,11 +8,17 @@ namespace Pokemen_Battle_Simulator
 {
     public abstract class Pokemon
     {
+        public enum Attributes
+        {
+            Fire,
+            Water,
+            Grass
+        }
         public string Name { get; set; }
-        public string Strength { get; set; }
-        public string Weakness { get; set; }
+        public Attributes Strength;
+        public Attributes Weakness;
 
-        public Pokemon(string name, string strength, string weakness) => (Name, Strength, Weakness) = (name, strength, weakness);
+        public Pokemon(string name) => (Name) = (name);
 
         public abstract void BattleCry();
     }

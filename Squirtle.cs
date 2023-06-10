@@ -8,11 +8,11 @@ namespace Pokemen_Battle_Simulator
 {
     public class Squirtle : Pokemon
     {
-        public Squirtle(string name = "squirtle", string strength = "water", string weakness = "grass") : base(name, strength, weakness)
+        public Squirtle(string name = "squirtle") : base(name)
         {
             this.Name = name;
-            this.Strength = strength;
-            this.Weakness = weakness;
+            this.Strength = Attributes.Water;
+            this.Weakness = Attributes.Grass;
         }
 
         public override void BattleCry()

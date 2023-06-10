@@ -27,6 +27,7 @@ class Program
             
             Arena arena = new Arena();
             arena.BattleArena(Trainer1, Trainer2);
+            arena.BattleResults(Trainer1, Trainer2);
             
             Console.WriteLine($"Do you want to start over?: Y/Any Key for Stop");
             string RepeatTheLoop = Console.ReadLine().ToUpper();

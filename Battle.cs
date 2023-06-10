@@ -61,6 +61,7 @@ namespace Pokemen_Battle_Simulator
                 {
                     T1.Remove(ball);
                     break;
+                    
                 }
             }
             foreach (Pokeball ball2 in T2)

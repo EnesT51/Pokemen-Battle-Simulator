@@ -8,11 +8,11 @@ namespace Pokemen_Battle_Simulator
 {
     public class Bulbasaur : Pokemon
     {
-        public Bulbasaur(string name = "bulbasaur", string strength = "grass", string weakness = "fire") : base(name, strength, weakness)
+        public Bulbasaur(string name = "bulbasaur") : base(name)
         {
             this.Name = name;
-            this.Strength = strength;
-            this.Weakness = weakness;
+            this.Strength = Attributes.Grass;
+            this.Weakness = Attributes.Fire;
         }
         public override void BattleCry()
         {

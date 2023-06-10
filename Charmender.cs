@@ -9,11 +9,11 @@ namespace Pokemen_Battle_Simulator
 {
     public class Charmender : Pokemon
     {
-        public Charmender(string name = "charmander", string strength = "fire", string weakness = "water") : base(name, strength, weakness)
+        public Charmender(string name = "charmander") : base(name)
         {
             this.Name = name;
-            this.Strength = strength;
-            this.Weakness = weakness;
+            this.Strength = Attributes.Fire;
+            this.Weakness = Attributes.Water;
         }
         public override void BattleCry()
         {

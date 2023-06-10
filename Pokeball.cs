@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Pokemen_Battle_Simulator
 {
-    public class Pokeball
+    public sealed class Pokeball
     {
-        public Pokemon Pokemon { get; set; }
+        public readonly Pokemon Pokemon;
 
         public Pokeball(Pokemon pokemon) => this.Pokemon = pokemon;
 
