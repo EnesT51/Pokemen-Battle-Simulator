@@ -9,10 +9,10 @@ namespace Pokemen_Battle_Simulator
 {
     public class Arena
     {
-        private static int Rounds { get; set; }
+        private int Rounds { get; set; }
 
         private readonly Battle btl = new();
-        
+
         public void BattleArena(Trainer T1, Trainer T2)
         {
             ResetValues();
@@ -47,15 +47,15 @@ namespace Pokemen_Battle_Simulator
         }
         private void ResetValues()
         {
-            btl.Trainer1 = 0;
-            btl.Trainer2 = 0;
+            btl.Trainer1Score = 0;
+            btl.Trainer2Score = 0;
             Rounds = 0;
         }
         public void BattleResults(Trainer T1, Trainer T2)
         {
-            Console.WriteLine("[P1 score: {0}] [P2 score: {1}]", btl.Trainer1, btl.Trainer2);
-            string OutCome = btl.Trainer1 > btl.Trainer2 ? $"Winner is {T1.TrainerName}" : $"Winner is {T2.TrainerName}";
-            if(btl.Trainer1 == btl.Trainer2)
+            Console.WriteLine("[P1 score: {0}] [P2 score: {1}]", btl.Trainer1Score, btl.Trainer2Score);
+            string OutCome = btl.Trainer1Score > btl.Trainer2Score ? $"Winner is {T1.TrainerName}" : $"Winner is {T2.TrainerName}";
+            if(btl.Trainer1Score == btl.Trainer2Score)
             {
                 Console.WriteLine("\nThe game is finished, there is no winner. It is a Draw");
             }

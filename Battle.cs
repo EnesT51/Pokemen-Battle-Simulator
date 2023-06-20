@@ -9,20 +9,20 @@ namespace Pokemen_Battle_Simulator
 {
     public class Battle
     {
-        public int Trainer1;
-        public int Trainer2;
+        public int Trainer1Score;
+        public int Trainer2Score;
 
         public string BattleOutCome(Pokemon Player1, Pokemon Player2, List<Pokeball> T1, List<Pokeball> T2)
         {
             if(Player1.Strength == Player2.Weakness)
             {
-                Trainer1++;
+                Trainer1Score++;
                 RemovePokemon(Player1, T1);
                 return $"The winner is {Player1.Name} Trainer 1 wins the round, {Player2.Name} returned to his pokeball";
             }
             else if(Player2.Strength == Player1.Weakness)
             {
-                Trainer2++;
+                Trainer2Score++;
                 RemovePokemon(Player2, T2);
                 return $"The winner is {Player2.Name} Trainer 2 wins the round, {Player1.Name} returned to his pokeball";
             }
