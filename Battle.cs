@@ -45,7 +45,7 @@ namespace Pokemen_Battle_Simulator
         }
         private static void RemovePokemonWhenItIsDraw(Pokemon Player1, Pokemon Player2, List<Pokeball> T1, List<Pokeball> T2)
         {
-            /*foreach((Pokeball ball, Pokeball ball2) in T1.Zip(T2, (e1, e2) => (e1, e2)))
+            foreach((Pokeball ball, Pokeball ball2) in T1.Zip(T2, (e1, e2) => (e1, e2)))
             {
                 if(ball.Pokemon.Name == Player1.Name && ball2.Pokemon.Name == Player2.Name)
                 {
@@ -53,9 +53,9 @@ namespace Pokemen_Battle_Simulator
                     T2.Remove(ball2);
                     break;
                 }
-            }*/
+            }
 
-            foreach (Pokeball ball in T1)
+            /*foreach (Pokeball ball in T1)
             {
                 if(Player1.Name == ball.Pokemon.Name)
                 {
@@ -71,7 +71,7 @@ namespace Pokemen_Battle_Simulator
                     T2.Remove(ball2);
                     break;
                 }
-            }
+            }*/
         }
     }
 }
