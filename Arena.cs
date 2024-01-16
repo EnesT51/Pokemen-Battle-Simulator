@@ -9,9 +9,9 @@ namespace Pokemen_Battle_Simulator
 {
     public class Arena
     {
-        private int Rounds { get; set; }
+        private static int Rounds { get; set; }
 
-        private readonly Battle btl = new();
+        private static readonly Battle btl = new();
 
         public void BattleArena(Trainer T1, Trainer T2)
         {
@@ -20,32 +20,40 @@ namespace Pokemen_Battle_Simulator
             List<Pokeball> Trainer2Belt = T2.GetBelt();
             Random random = new();
             Console.WriteLine();
-            do
+            if (Trainer1Belt.Count == Trainer2Belt.Count)
             {
-                Rounds++;
-                Console.WriteLine("[--------------------[Battle] [Round:{0}]--------------------]", Rounds);
-                Console.WriteLine();
-                int rnd1 = random.Next(0, Trainer1Belt.Count);
-                int rnd2 = random.Next(0, Trainer2Belt.Count);
+                do
+                {
+                    Rounds++;
+                    Console.WriteLine("[--------------------[Battle] [Round:{0}]--------------------]", Rounds);
+                    Console.WriteLine();
+                    int rnd1 = random.Next(0, Trainer1Belt.Count);
+                    int rnd2 = random.Next(0, Trainer2Belt.Count);
 
-                Pokemon pokemon1 = T1.ThrowPokeBall(Trainer1Belt[rnd1]);
-                Pokemon pokemon2 = T2.ThrowPokeBall(Trainer2Belt[rnd2]);
-                Console.WriteLine();
+                    Pokemon pokemon1 = T1.ThrowPokeBall(Trainer1Belt[rnd1]);
+                    Pokemon pokemon2 = T2.ThrowPokeBall(Trainer2Belt[rnd2]);
+                    Console.WriteLine();
 
-                pokemon1.BattleCry();
-                pokemon2.BattleCry();
-                Console.WriteLine();
-                
-                T1.ReturnPokeBall(Trainer1Belt[rnd1]);
-                T2.ReturnPokeBall(Trainer2Belt[rnd2]);
-                Console.WriteLine();
+                    pokemon1.BattleCry();
+                    pokemon2.BattleCry();
+                    Console.WriteLine();
 
-                Console.WriteLine(btl.BattleOutCome(pokemon1, pokemon2, Trainer1Belt, Trainer2Belt));
+                    T1.ReturnPokeBall(Trainer1Belt[rnd1]);
+                    T2.ReturnPokeBall(Trainer2Belt[rnd2]);
+                    Console.WriteLine();
+
+                    Console.WriteLine(btl.BattleOutCome(pokemon1, pokemon2, Trainer1Belt, Trainer2Belt));
+                }
+                while (Trainer1Belt.Count > 0 && Trainer2Belt.Count > 0);
             }
-            while (Trainer1Belt.Count > 0 && Trainer2Belt.Count > 0);
+            else
+            {
+                Console.WriteLine("The amount of pokemons are not equal. Please give same amount of pokemons to bought of the Trainers.");
+            }
+            
             
         }
-        private void ResetValues()
+        private static void ResetValues()
         {
             btl.Trainer1Score = 0;
             btl.Trainer2Score = 0;
@@ -53,9 +61,13 @@ namespace Pokemen_Battle_Simulator
         }
         public void BattleResults(Trainer T1, Trainer T2)
         {
-            Console.WriteLine("[P1 score: {0}] [P2 score: {1}]", btl.Trainer1Score, btl.Trainer2Score);
+            Console.WriteLine("[{2} score: {0}] [{3} score: {1}]", btl.Trainer1Score, btl.Trainer2Score, T1.TrainerName, T2.TrainerName);
             string OutCome = btl.Trainer1Score > btl.Trainer2Score ? $"Winner is {T1.TrainerName}" : $"Winner is {T2.TrainerName}";
-            if(btl.Trainer1Score == btl.Trainer2Score)
+            if (btl.Trainer1Score == btl.Trainer2Score && Rounds == 0)
+            {
+                Console.WriteLine("\nThe game is finished, there is no winner.");
+            }
+            else if (btl.Trainer1Score == btl.Trainer2Score)
             {
                 Console.WriteLine("\nThe game is finished, there is no winner. It is a Draw");
             }
