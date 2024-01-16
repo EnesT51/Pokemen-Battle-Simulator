@@ -32,7 +32,7 @@ namespace Pokemen_Battle_Simulator
                 return "it is a Draw";
             }
         }
-        private static void RemovePokemon(Pokemon pokemon, List<Pokeball> Belt)
+        private void RemovePokemon(Pokemon pokemon, List<Pokeball> Belt)
         {
             foreach(Pokeball ball in Belt)
             {
@@ -43,7 +43,7 @@ namespace Pokemen_Battle_Simulator
                 }
             }
         }
-        private static void RemovePokemonWhenItIsDraw(Pokemon Player1, Pokemon Player2, List<Pokeball> T1, List<Pokeball> T2)
+        private void RemovePokemonWhenItIsDraw(Pokemon Player1, Pokemon Player2, List<Pokeball> T1, List<Pokeball> T2)
         {
             foreach((Pokeball ball, Pokeball ball2) in T1.Zip(T2, (e1, e2) => (e1, e2)))
             {
