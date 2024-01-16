@@ -14,20 +14,22 @@ namespace Pokemen_Battle_Simulator
 
         public Pokemon Open()
         {
-            if(Pokemon != null)
+            Pokemon poke = Pokemon;
+            if(poke != null)
             {
-                Console.WriteLine($"{Pokemon.Name} is released from his pokeball!!!");
+                Console.WriteLine($"{poke.Name} is released from his pokeball!!!");
             }
             else
             {
                 Console.WriteLine("The pokeball is empty");
             }
-            return Pokemon;
+            return poke!;
         }
         public Pokemon Close()
         {
-            Console.WriteLine($"{Pokemon.Name} is returnd to his pokeball");
-            return Pokemon;
+            Pokemon poke = Pokemon;
+            Console.WriteLine($"{poke.Name} is returnd to his pokeball");
+            return poke;
         }
     }
 }
