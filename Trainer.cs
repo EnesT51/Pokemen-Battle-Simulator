@@ -55,7 +55,6 @@ namespace Pokemen_Battle_Simulator
                     {
                         Random r = new Random();
                         int shuffle = r.Next(0, pokemons.Count);
-                        Console.WriteLine(shuffle);
                         Pokemon pokemon = (Pokemon)pokemons[shuffle];
                         if (belt.Count <= 6)
                         {
