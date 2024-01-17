@@ -6,30 +6,27 @@ using System.Threading.Tasks;
 
 namespace Pokemen_Battle_Simulator
 {
-    public sealed class Pokeball
+    public class Pokeball
     {
-        public readonly Pokemon Pokemon;
+        public Pokemon Pokemon { get; set; }
 
         public Pokeball(Pokemon pokemon) => this.Pokemon = pokemon;
 
-        public Pokemon Open()
+        public string Open()
         {
-            Pokemon poke = Pokemon;
-            if(poke != null)
+            if(Pokemon != null)
             {
-                Console.WriteLine($"{poke.Name} is released from his pokeball!!!");
+                return $"{Pokemon.Name} is released from his pokeball!!!";
             }
             else
             {
-                Console.WriteLine("The pokeball is empty");
+                return "The pokeball is empty";
             }
-            return poke!;
+
         }
-        public Pokemon Close()
+        public string Close()
         {
-            Pokemon poke = Pokemon;
-            Console.WriteLine($"{poke.Name} is returnd to his pokeball");
-            return poke;
+            return $"{Pokemon.Name} is returnd to his pokeball";
         }
     }
 }
