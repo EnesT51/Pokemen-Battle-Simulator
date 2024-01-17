@@ -11,7 +11,7 @@ using System.Xml.Linq;
 
 namespace Pokemen_Battle_Simulator
 {
-    public class Trainer 
+    public class Trainer
     {
         private readonly List<Pokeball> belt;
 
@@ -23,14 +23,18 @@ namespace Pokemen_Battle_Simulator
         }
 
         // Instead of pokemon returns pokeball, move open to battle
-        public Pokemon ThrowPokeBall(Pokeball pokeball)
+        public static Pokemon ThrowPokeBall(Pokeball pokeball)
         {
-            Pokemon pokemon = pokeball.Open();
+            Pokemon pokemon = pokeball.Pokemon;
+            string open = pokeball.Open();
+            Console.WriteLine(open);
             return pokemon;
         }
-        public Pokemon ReturnPokeBall(Pokeball pokeball)
+        public static Pokemon ReturnPokeBall(Pokeball pokeball)
         {
-            Pokemon pokemon = pokeball.Close();
+            Pokemon pokemon = pokeball.Pokemon;
+            string close  = pokeball.Close();
+            Console.WriteLine(close);
             return pokemon;
         }
 
@@ -51,6 +55,7 @@ namespace Pokemen_Battle_Simulator
                     {
                         Random r = new Random();
                         int shuffle = r.Next(0, pokemons.Count);
+                        Console.WriteLine(shuffle);
                         Pokemon pokemon = (Pokemon)pokemons[shuffle];
                         if (belt.Count <= 6)
                         {
