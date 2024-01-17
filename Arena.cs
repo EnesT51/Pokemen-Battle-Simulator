@@ -13,7 +13,7 @@ namespace Pokemen_Battle_Simulator
 
         private static readonly Battle btl = new();
 
-        public void BattleArena(Trainer T1, Trainer T2)
+        public static void BattleArena(Trainer T1, Trainer T2)
         {
             ResetValues();
             List<Pokeball> Trainer1Belt = T1.GetBelt();
@@ -30,16 +30,16 @@ namespace Pokemen_Battle_Simulator
                     int rnd1 = random.Next(0, Trainer1Belt.Count);
                     int rnd2 = random.Next(0, Trainer2Belt.Count);
 
-                    Pokemon pokemon1 = T1.ThrowPokeBall(Trainer1Belt[rnd1]);
-                    Pokemon pokemon2 = T2.ThrowPokeBall(Trainer2Belt[rnd2]);
+                    Pokemon pokemon1 = Trainer.ThrowPokeBall(Trainer1Belt[rnd1]);
+                    Pokemon pokemon2 = Trainer.ThrowPokeBall(Trainer2Belt[rnd2]);
                     Console.WriteLine();
 
                     pokemon1.BattleCry();
                     pokemon2.BattleCry();
                     Console.WriteLine();
 
-                    T1.ReturnPokeBall(Trainer1Belt[rnd1]);
-                    T2.ReturnPokeBall(Trainer2Belt[rnd2]);
+                    Trainer.ReturnPokeBall(Trainer1Belt[rnd1]);
+                    Trainer.ReturnPokeBall(Trainer2Belt[rnd2]);
                     Console.WriteLine();
 
                     Console.WriteLine(btl.BattleOutCome(pokemon1, pokemon2, Trainer1Belt, Trainer2Belt));
@@ -59,7 +59,7 @@ namespace Pokemen_Battle_Simulator
             btl.Trainer2Score = 0;
             Rounds = 0;
         }
-        public void BattleResults(Trainer T1, Trainer T2)
+        public static void BattleResults(Trainer T1, Trainer T2)
         {
             Console.WriteLine("[{2} score: {0}] [{3} score: {1}]", btl.Trainer1Score, btl.Trainer2Score, T1.TrainerName, T2.TrainerName);
             string OutCome = btl.Trainer1Score > btl.Trainer2Score ? $"Winner is {T1.TrainerName}" : $"Winner is {T2.TrainerName}";
