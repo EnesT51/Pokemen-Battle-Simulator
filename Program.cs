@@ -20,14 +20,13 @@ class Program
             Trainer Trainer2 = new Trainer(Trainername2!);
             Trainer2.TrainerName = Trainername2!;
             Console.WriteLine($"Second Trainer name is: {Trainer2.TrainerName}");
-            Arena arena = new Arena();
             try
             {
                 Trainer1.AddPokemonToBelt();
                 Trainer2.AddPokemonToBelt();
 
-                arena.BattleArena(Trainer1, Trainer2);
-                arena.BattleResults(Trainer1, Trainer2);
+                Arena.BattleArena(Trainer1, Trainer2);
+                Arena.BattleResults(Trainer1, Trainer2);
             }
             catch{ Console.WriteLine("The reason it didn't work could be due to either entering too many Pokémon in the belt, having no Pokémon in the belt, or having an unequal number of Pokémon in the belt. Please try again."); }
             
