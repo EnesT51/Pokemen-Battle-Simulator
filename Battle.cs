@@ -9,8 +9,8 @@ namespace Pokemen_Battle_Simulator
 {
     public class Battle
     {
-        public int Trainer1Score;
-        public int Trainer2Score;
+        public int Trainer1Score { get; set; }
+        public int Trainer2Score { get; set; }
 
         public string BattleOutCome(Pokemon Player1, Pokemon Player2, List<Pokeball> T1, List<Pokeball> T2)
         {

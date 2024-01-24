@@ -26,9 +26,12 @@ class Program
                 Trainer2.AddPokemonToBelt();
 
                 Arena.BattleArena(Trainer1, Trainer2);
-                Arena.BattleResults(Trainer1, Trainer2);
+                Console.WriteLine(Arena.BattleResults(Trainer1, Trainer2));
             }
-            catch{ Console.WriteLine("The reason it didn't work could be due to either entering too many Pokémon in the belt, having no Pokémon in the belt, or having an unequal number of Pokémon in the belt. Please try again."); }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
             
             Console.WriteLine($"Do you want to start over?: Y/Any Key for Stop");
             string? RepeatTheLoop = Console.ReadLine()?.ToUpper();

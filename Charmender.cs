@@ -15,9 +15,9 @@ namespace Pokemen_Battle_Simulator
             this.Strength = Attributes.Fire;
             this.Weakness = Attributes.Water;
         }
-        public override void BattleCry()
+        public override string BattleCry()
         {
-            Console.WriteLine($"{Name} does his Battle Cry {Name} !!!!!!");
+            return $"{Name} does his Battle Cry {Name} !!!!!!";
         }
     }
 }

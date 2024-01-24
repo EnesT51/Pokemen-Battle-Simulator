@@ -34,8 +34,8 @@ namespace Pokemen_Battle_Simulator
                     Pokemon pokemon2 = Trainer.ThrowPokeBall(Trainer2Belt[rnd2]);
                     Console.WriteLine();
 
-                    pokemon1.BattleCry();
-                    pokemon2.BattleCry();
+                    Console.WriteLine(pokemon1.BattleCry());
+                    Console.WriteLine(pokemon2.BattleCry());
                     Console.WriteLine();
 
                     Trainer.ReturnPokeBall(Trainer1Belt[rnd1]);
@@ -51,7 +51,6 @@ namespace Pokemen_Battle_Simulator
                 Console.WriteLine("The amount of pokemons are not equal. Please give same amount of pokemons to bought of the Trainers.");
             }
             
-            
         }
         private static void ResetValues()
         {
@@ -59,19 +58,19 @@ namespace Pokemen_Battle_Simulator
             btl.Trainer2Score = 0;
             Rounds = 0;
         }
-        public static void BattleResults(Trainer T1, Trainer T2)
+        public static string BattleResults(Trainer T1, Trainer T2)
         {
             Console.WriteLine("[{2} score: {0}] [{3} score: {1}]", btl.Trainer1Score, btl.Trainer2Score, T1.TrainerName, T2.TrainerName);
             string OutCome = btl.Trainer1Score > btl.Trainer2Score ? $"Winner is {T1.TrainerName}" : $"Winner is {T2.TrainerName}";
             if (btl.Trainer1Score == btl.Trainer2Score && Rounds == 0)
             {
-                Console.WriteLine("\nThe game is finished, there is no winner.");
+                return "\nThe game is finished, there is no winner.";
             }
             else if (btl.Trainer1Score == btl.Trainer2Score)
             {
-                Console.WriteLine("\nThe game is finished, there is no winner. It is a Draw");
+                return "\nThe game is finished, there is no winner. It is a Draw";
             }
-            else { Console.WriteLine($"\n{OutCome}"); }
+            else { return $"\n{OutCome}"; }
             
         }
     }

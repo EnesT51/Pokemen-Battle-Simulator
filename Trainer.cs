@@ -62,6 +62,8 @@ namespace Pokemen_Battle_Simulator
                         }
                     }
                 }
+                else { throw new Exception("The reason it didn't work could be due to either entering too many Pokémon in the belt "); }
+
             }
             catch (Exception e)
             {

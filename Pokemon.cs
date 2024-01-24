@@ -15,11 +15,11 @@ namespace Pokemen_Battle_Simulator
             Grass
         }
         public string Name { get; set; }
-        public Attributes Strength;
-        public Attributes Weakness;
+        public Attributes Strength { get; set; }
+        public Attributes Weakness { get; set; }
 
         public Pokemon(string name) => (Name) = (name);
 
-        public abstract void BattleCry();
+        public abstract string BattleCry();
     }
 }
